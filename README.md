@@ -1,5 +1,5 @@
 # js-wisdom
-These are random fun findings in JS for JS lovers by a JS lover.
+These are some random details of JS for JS lovers by a JS lover.
 
 ### Object.freeze is shallow freeze
 It is a shallow freeze. 
@@ -11,13 +11,14 @@ Obj.first is frozen but you can still mutate Obj.first.second (deep) property.
 ### Spread Operator is shallow copy for Objects
 ```javascript
 let a=[{t:1},{t:2},{t:3}]; 
-b=[...a]; 
+let b=[...a]; 
 a[1].t=100; //(now b[1].t will also change to 100 automatically) 
+console.log(b[1].t === 100) //true
 ```
-For premitive values it is not a problem.
+For premitive values it is not applicable.
 ```javascript
 let c=[1,2,3,4,5]; 
-d=[...a];  
+let d=[...c];  
 c[2]=100; //(this will not change d[2])
+console.log(d[2] === 3); //true
 ```
-So for Objects it is a shallow copy and the objects keep the reference from before being spread.
