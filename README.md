@@ -5,6 +5,10 @@ These are some random details of JS for JS lovers by a JS lover.
 It is a shallow freeze. 
 ```javascript
 let Obj = {first: {second: 'val'}};
+Object.freeze(Obj);
+Obj.first = 'changed-first'; //nothing changes as expected
+Obj.first.second = 'changed-second'; //changes the value 'val' to 'changed-second'
+console.log(Obj); // {first: {second: 'changed-second'}}
 ``` 
 Obj.first is frozen but you can still mutate Obj.first.second (deep) property.
 
